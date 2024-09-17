@@ -1,0 +1,47 @@
+const puppeteer = require('puppeteer'); // v22.0.0 or later
+
+(async () => {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    const timeout = 5000;
+    page.setDefaultTimeout(timeout);
+
+    {
+        const targetPage = page;
+        await targetPage.setViewport({
+            width: 1519,
+            height: 372
+        })
+    }
+    {
+        const targetPage = page;
+        const promises = [];
+        const startWaitingForEvents = () => {
+            promises.push(targetPage.waitForNavigation());
+        }
+        startWaitingForEvents();
+        await targetPage.goto('https://bakerhughes.wd5.myworkdayjobs.com/en-US/bakerhughes/job/IN-MH-MUMBAI-HIRANANDANI-BUSINESS-PARK-POWAI/Senior-Data-Scientist-Python_R68910-1');
+        await Promise.all(promises);
+    }
+    {
+        const targetPage = page;
+        await puppeteer.Locator.race([
+            targetPage.locator('div.css-gj3t6y button'),
+            targetPage.locator('::-p-xpath(//*[@id=\\"mainContent\\"]/div/div/div[2]/div/button)'),
+            targetPage.locator(':scope >>> div.css-gj3t6y button')
+        ])
+            .setTimeout(timeout)
+            .click({
+              offset: {
+                x: 72.8125,
+                y: 24,
+              },
+            });
+    }
+
+    await browser.close();
+
+})().catch(err => {
+    console.error(err);
+    process.exit(1);
+});

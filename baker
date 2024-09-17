@@ -20,7 +20,7 @@ const puppeteer = require('puppeteer'); // v22.0.0 or later
             promises.push(targetPage.waitForNavigation());
         }
         startWaitingForEvents();
-        await targetPage.goto('https://db.wd3.myworkdayjobs.com/en-US/dbwebsite/job/Pune---Margarpatta/Software-Engineer--Python-Data-Engineer-Scientist-I_R0194088-1');
+        await targetPage.goto('https://blackrock.wd1.myworkdayjobs.com/en-US/blackrock_professional/job/Gurgaon-India/Associate--Data-Engineer--Python-developer-_R230413');
         await Promise.all(promises);
     }
     {
@@ -34,24 +34,24 @@ const puppeteer = require('puppeteer'); // v22.0.0 or later
             .setTimeout(timeout)
             .click({
               offset: {
-                x: 83.8125,
-                y: 12,
+                x: 54.8125,
+                y: 17.599998474121094,
               },
             });
     }
     {
         const targetPage = page;
         await puppeteer.Locator.race([
-            targetPage.locator("[id='l21s2']"),
-            targetPage.locator('::-p-xpath(//*[@id=\\"l21s2\\"])'),
-            targetPage.locator(":scope >>> [id='l21s2']"),
+            targetPage.locator("[id='ppv92']"),
+            targetPage.locator('::-p-xpath(//*[@id=\\"ppv92\\"])'),
+            targetPage.locator(":scope >>> [id='ppv92']"),
             targetPage.locator('::-p-aria(Search[role=\\"textbox\\"])')
         ])
             .setTimeout(timeout)
             .click({
               offset: {
-                x: 146.39999389648438,
-                y: 16.200000762939453,
+                x: 167.39999389648438,
+                y: 13,
               },
             });
     }

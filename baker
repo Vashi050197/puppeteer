@@ -20,7 +20,7 @@ const puppeteer = require('puppeteer'); // v22.0.0 or later
             promises.push(targetPage.waitForNavigation());
         }
         startWaitingForEvents();
-        await targetPage.goto('https://bakerhughes.wd5.myworkdayjobs.com/en-US/bakerhughes/job/IN-MH-MUMBAI-HIRANANDANI-BUSINESS-PARK-POWAI/Senior-Data-Scientist-Python_R68910-1');
+        await targetPage.goto('https://db.wd3.myworkdayjobs.com/en-US/dbwebsite/job/Pune---Margarpatta/Software-Engineer--Python-Data-Engineer-Scientist-I_R0194088-1');
         await Promise.all(promises);
     }
     {
@@ -28,29 +28,30 @@ const puppeteer = require('puppeteer'); // v22.0.0 or later
         await puppeteer.Locator.race([
             targetPage.locator('div.css-gj3t6y button'),
             targetPage.locator('::-p-xpath(//*[@id=\\"mainContent\\"]/div/div/div[2]/div/button)'),
-            targetPage.locator(':scope >>> div.css-gj3t6y button')
+            targetPage.locator(':scope >>> div.css-gj3t6y button'),
+            targetPage.locator("::-p-aria(The page you are looking for doesn\\'t exist. Search for Jobs) >>>> ::-p-aria(Search for Jobs)")
         ])
             .setTimeout(timeout)
             .click({
               offset: {
-                x: 72.8125,
-                y: 24,
+                x: 83.8125,
+                y: 12,
               },
             });
     }
     {
         const targetPage = page;
         await puppeteer.Locator.race([
-            targetPage.locator("[id='nfwt2']"),
-            targetPage.locator('::-p-xpath(//*[@id=\\"nfwt2\\"])'),
-            targetPage.locator(":scope >>> [id='nfwt2']"),
+            targetPage.locator("[id='l21s2']"),
+            targetPage.locator('::-p-xpath(//*[@id=\\"l21s2\\"])'),
+            targetPage.locator(":scope >>> [id='l21s2']"),
             targetPage.locator('::-p-aria(Search[role=\\"textbox\\"])')
         ])
             .setTimeout(timeout)
             .click({
               offset: {
-                x: 216.39999389648438,
-                y: 21.600000023841858,
+                x: 146.39999389648438,
+                y: 16.200000762939453,
               },
             });
     }

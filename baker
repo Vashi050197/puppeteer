@@ -9,8 +9,8 @@ const puppeteer = require('puppeteer'); // v22.0.0 or later
     {
         const targetPage = page;
         await targetPage.setViewport({
-            width: 1519,
-            height: 372
+            width: 1268,
+            height: 737
         })
     }
     {
@@ -20,38 +20,41 @@ const puppeteer = require('puppeteer'); // v22.0.0 or later
             promises.push(targetPage.waitForNavigation());
         }
         startWaitingForEvents();
-        await targetPage.goto('https://blackrock.wd1.myworkdayjobs.com/en-US/blackrock_professional/job/Gurgaon-India/Associate--Data-Engineer--Python-developer-_R230413');
+        await targetPage.goto('https://dupont.wd5.myworkdayjobs.com/en-US/jobs/job/Hyderabad-Telangana/Business-Intelligence-Data-Engineer---Azure--Python--SQL-_230530W');
+        await Promise.all(promises);
+    }
+    {
+        const targetPage = page;
+        const promises = [];
+        const startWaitingForEvents = () => {
+            promises.push(targetPage.waitForNavigation());
+        }
+        await puppeteer.Locator.race([
+            targetPage.locator('nav > button'),
+            targetPage.locator('::-p-xpath(//*[@id=\\"root\\"]/div/div/div[1]/div/header/div[2]/div[3]/div/nav/button)'),
+            targetPage.locator(':scope >>> nav > button'),
+            targetPage.locator('::-p-aria([role=\\"navigation\\"]) >>>> ::-p-aria(Search for Jobs)')
+        ])
+            .setTimeout(timeout)
+            .on('action', () => startWaitingForEvents())
+            .click({
+              offset: {
+                x: 26.824951171875,
+                y: 7.799999237060547,
+              },
+            });
         await Promise.all(promises);
     }
     {
         const targetPage = page;
         await puppeteer.Locator.race([
-            targetPage.locator('div.css-gj3t6y button'),
-            targetPage.locator('::-p-xpath(//*[@id=\\"mainContent\\"]/div/div/div[2]/div/button)'),
-            targetPage.locator(':scope >>> div.css-gj3t6y button'),
-            targetPage.locator("::-p-aria(The page you are looking for doesn\\'t exist. Search for Jobs) >>>> ::-p-aria(Search for Jobs)")
-        ])
-            .setTimeout(timeout)
-            .click({
-              offset: {
-                x: 54.8125,
-                y: 17.599998474121094,
-              },
-            });
-    }
-    {
-        const targetPage = page;
-        await puppeteer.Locator.race([
-            targetPage.locator("[id='ppv92']"),
-            targetPage.locator('::-p-xpath(//*[@id=\\"ppv92\\"])'),
-            targetPage.locator(":scope >>> [id='ppv92']"),
             targetPage.locator('::-p-aria(Search[role=\\"textbox\\"])')
         ])
             .setTimeout(timeout)
             .click({
               offset: {
-                x: 167.39999389648438,
-                y: 13,
+                x: 239.5999984741211,
+                y: 8,
               },
             });
     }

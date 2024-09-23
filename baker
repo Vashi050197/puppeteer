@@ -75,6 +75,60 @@ const puppeteer = require('puppeteer'); // v22.0.0 or later
         });
 }
 
+    {
+        const targetPage = page;
+        const promises = [];
+        const startWaitingForEvents = () => {
+            promises.push(targetPage.waitForNavigation());
+        }
+        await puppeteer.Locator.race([
+            targetPage.locator("[data-automation-id='autofillWithResume']"),
+            targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"autofillWithResume\\"])'),
+            targetPage.locator(":scope >>> [data-automation-id='autofillWithResume']"),
+            targetPage.locator('::-p-aria(Autofill with Resume)'),
+            targetPage.locator('::-p-text(Autofill with)')
+        ])
+            .setTimeout(timeout)
+            .on('action', () => startWaitingForEvents())
+            .click({
+              offset: {
+                x: 195.39996337890625,
+                y: 15.399993896484375,
+              },
+            });
+        await Promise.all(promises);
+    }
+    {
+        const targetPage = page;
+        await puppeteer.Locator.race([
+            targetPage.locator('#simplify-jobs-container > div >>>> #fill-button'),
+            targetPage.locator(':scope >>> #fill-button')
+        ])
+            .setTimeout(timeout)
+            .click({
+              offset: {
+                x: 300,
+                y: 10,
+              },
+            });
+    }
+    {
+        const targetPage = page;
+        await puppeteer.Locator.race([
+            targetPage.locator("[data-automation-id='password']"),
+            targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"password\\"])'),
+            targetPage.locator(":scope >>> [data-automation-id='password']"),
+            targetPage.locator('::-p-aria(Password)')
+        ])
+            .setTimeout(timeout)
+            .click({
+              offset: {
+                x: 210.39996337890625,
+                y: 10.800003051757812,
+              },
+            });
+    }
+
     await browser.close();
 
 })().catch(err => {

@@ -1,0 +1,181 @@
+const puppeteer = require('puppeteer'); // v22.0.0 or later
+
+(async () => {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    const timeout = 5000;
+    page.setDefaultTimeout(timeout);
+
+    {
+        const targetPage = page;
+        await targetPage.setViewport({
+            width: 1519,
+            height: 236
+        })
+    }
+    {
+        const targetPage = page;
+        const promises = [];
+        const startWaitingForEvents = () => {
+            promises.push(targetPage.waitForNavigation());
+        }
+        startWaitingForEvents();
+        await targetPage.goto('https://harman.wd3.myworkdayjobs.com/en-US/harman/job/IN_Bangalore_EOIZ-Indust-Area-Campus/ETL-Big-Data-Python---Private-Cloud_R-28936-2023');
+        await Promise.all(promises);
+    }
+    {
+        const targetPage = page;
+        await puppeteer.Locator.race([
+            targetPage.locator("[data-automation-id='searchForJobsButton']"),
+            targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"searchForJobsButton\\"])'),
+            targetPage.locator(":scope >>> [data-automation-id='searchForJobsButton']")
+        ])
+            .setTimeout(timeout)
+            .click({
+              offset: {
+                x: 75.8125,
+                y: 6.1999969482421875,
+              },
+            });
+    }
+    {
+        const targetPage = page;
+        await puppeteer.Locator.race([
+            targetPage.locator("[data-automation-id='keywordSearchInput']"),
+            targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"keywordSearchInput\\"])'),
+            targetPage.locator(":scope >>> [data-automation-id='keywordSearchInput']"),
+            targetPage.locator('::-p-aria(Search[role=\\"textbox\\"])')
+        ])
+            .setTimeout(timeout)
+            .click({
+              offset: {
+                x: 188.39999389648438,
+                y: 13,
+              },
+            });
+    }
+    {
+        const targetPage = page;
+        await puppeteer.Locator.race([
+            targetPage.locator("[data-automation-id='keywordSearchInput']"),
+            targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"keywordSearchInput\\"])'),
+            targetPage.locator(":scope >>> [data-automation-id='keywordSearchInput']"),
+            targetPage.locator('::-p-aria(Search[role=\\"textbox\\"])')
+        ])
+            .setTimeout(timeout)
+            .fill('data');
+    }
+    {
+        const targetPage = page;
+        await puppeteer.Locator.race([
+            targetPage.locator("[data-automation-id='keywordSearchButton']"),
+            targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"keywordSearchButton\\"])'),
+            targetPage.locator(":scope >>> [data-automation-id='keywordSearchButton']"),
+            targetPage.locator('::-p-aria(Search[role=\\"button\\"])')
+        ])
+            .setTimeout(timeout)
+            .click({
+              offset: {
+                x: 51.39996337890625,
+                y: 16,
+              },
+            });
+    }
+    ///////////////////////////////Choose the job
+    {
+        const targetPage = page;
+        await puppeteer.Locator.race([
+            targetPage.locator("[data-automation-id='adventureButton']"),
+            targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"adventureButton\\"])'),
+            targetPage.locator(":scope >>> [data-automation-id='adventureButton']"),
+            targetPage.locator('::-p-aria(Apply)'),
+            targetPage.locator('::-p-text(Apply)')
+        ])
+            .setTimeout(timeout)
+            .click({
+              offset: {
+                x: 54.39996337890625,
+                y: 14.800003051757812,
+              },
+            });
+    }
+    {
+        const targetPage = page;
+        const promises = [];
+        const startWaitingForEvents = () => {
+            promises.push(targetPage.waitForNavigation());
+        }
+        await puppeteer.Locator.race([
+            targetPage.locator("[data-automation-id='autofillWithResume']"),
+            targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"autofillWithResume\\"])'),
+            targetPage.locator(":scope >>> [data-automation-id='autofillWithResume']"),
+            targetPage.locator('::-p-aria(Autofill with Resume)'),
+            targetPage.locator('::-p-text(Autofill with)')
+        ])
+            .setTimeout(timeout)
+            .on('action', () => startWaitingForEvents())
+            .click({
+              offset: {
+                x: 166.39996337890625,
+                y: 25.399993896484375,
+              },
+            });
+        await Promise.all(promises);
+    }
+
+    //////////////////////search for credential
+    {
+        const targetPage = page;
+        await puppeteer.Locator.race([
+            targetPage.locator("[data-automation-id='email']"),
+            targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"email\\"])'),
+            targetPage.locator(":scope >>> [data-automation-id='email']"),
+            targetPage.locator('::-p-aria(Email Address)')
+        ])
+            .setTimeout(timeout)
+            .click({
+              offset: {
+                x: 77.39996337890625,
+                y: 15.400001525878906,
+              },
+            });
+    }
+    {
+        const targetPage = page;
+        await puppeteer.Locator.race([
+            targetPage.locator("[data-automation-id='password']"),
+            targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"password\\"])'),
+            targetPage.locator(":scope >>> [data-automation-id='password']"),
+            targetPage.locator('::-p-aria(Password)')
+        ])
+            .setTimeout(timeout)
+            .click({
+              offset: {
+                x: 56.39996337890625,
+                y: 14.399993896484375,
+              },
+            });
+    }
+
+    //////////////////////////////crete a acc
+    {
+        const targetPage = page;
+        await puppeteer.Locator.race([
+            targetPage.locator('#simplify-jobs-container > div >>>> #fill-button'),
+            targetPage.locator(':scope >>> #fill-button')
+        ])
+            .setTimeout(timeout)
+            .click({
+              offset: {
+                x: 275,
+                y: 8.800003051757812,
+              },
+            });
+    }
+
+    await browser.close();
+
+})().catch(err => {
+    console.error(err);
+    process.exit(1);
+});

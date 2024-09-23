@@ -57,6 +57,23 @@ const puppeteer = require('puppeteer'); // v22.0.0 or later
               },
             });
     }
+    {
+        const targetPage = page;
+        await puppeteer.Locator.race([
+            targetPage.locator('div.css-37urdo a'),
+            targetPage.locator('::-p-xpath(//*[@id=\\"mainContent\\"]/div/div[2]/div/div/section/div/div[1]/div[3]/div/div/div[2]/div/div/div/a)'),
+            targetPage.locator(':scope >>> div.css-37urdo a'),
+            targetPage.locator('::-p-aria(Apply)'),
+            targetPage.locator('::-p-text(Apply)')
+        ])
+            .setTimeout(timeout)
+            .click({
+              offset: {
+                x: 43.39996337890625,
+                y: 19.400001525878906,
+              },
+            });
+    }
 
     await browser.close();
 

@@ -125,51 +125,374 @@ const puppeteer = require('puppeteer'); // v22.0.0 or later
         await Promise.all(promises);
     }
     {
-        const targetPage = page;
-        await puppeteer.Locator.race([
-            targetPage.locator("[data-automation-id='email']"),
-            targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"email\\"])'),
-            targetPage.locator(":scope >>> [data-automation-id='email']"),
-            targetPage.locator('::-p-aria(Email Address)')
-        ])
-            .setTimeout(timeout)
-            .click({
-              offset: {
-                x: 76.39996337890625,
-                y: 19.524993896484375,
-              },
-            });
-    }
-    {
-        const targetPage = page;
-        await puppeteer.Locator.race([
-            targetPage.locator("[data-automation-id='password']"),
-            targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"password\\"])'),
-            targetPage.locator(":scope >>> [data-automation-id='password']"),
-            targetPage.locator('::-p-aria(Password)')
-        ])
-            .setTimeout(timeout)
-            .click({
-              offset: {
-                x: 54.39996337890625,
-                y: 14.524993896484375,
-              },
-            });
-    }
-    {
-        const targetPage = page;
-        await puppeteer.Locator.race([
-            targetPage.locator('#simplify-jobs-container > div >>>> #fill-button'),
-            targetPage.locator(':scope >>> #fill-button')
-        ])
-            .setTimeout(timeout)
-            .click({
-              offset: {
-                x: 269,
-                y: 12.800003051757812,
-              },
-            });
-    }
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='createAccountLink']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"createAccountLink\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='createAccountLink']"),
+          targetPage.locator('::-p-aria(Create Account)'),
+          targetPage.locator('::-p-text(Create Account)')
+      ])
+          .setTimeout(timeout)
+          .click({
+            offset: {
+              x: 39.83746337890625,
+              y: 9.199981689453125,
+            },
+          });
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='email']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"email\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='email']"),
+          targetPage.locator('::-p-aria(Email Address)')
+      ])
+          .setTimeout(timeout)
+          .click({
+            offset: {
+              x: 142.39996337890625,
+              y: 23.199981689453125,
+            },
+          });
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='email']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"email\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='email']"),
+          targetPage.locator('::-p-aria(Email Address)')
+      ])
+          .setTimeout(timeout)
+          .fill('vashimalik123@gmail.com');
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='password']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"password\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='password']"),
+          targetPage.locator('::-p-aria(Password)')
+      ])
+          .setTimeout(timeout)
+          .click({
+            offset: {
+              x: 108.39996337890625,
+              y: 25.599990844726562,
+            },
+          });
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='password']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"password\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='password']"),
+          targetPage.locator('::-p-aria(Password)')
+      ])
+          .setTimeout(timeout)
+          .fill('Meetop@/123');
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='verifyPassword']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"verifyPassword\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='verifyPassword']"),
+          targetPage.locator('::-p-aria(Verify New Password)')
+      ])
+          .setTimeout(timeout)
+          .click({
+            offset: {
+              x: 69.39996337890625,
+              y: 21.600006103515625,
+            },
+          });
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='verifyPassword']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"verifyPassword\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='verifyPassword']"),
+          targetPage.locator('::-p-aria(Verify New Password)')
+      ])
+          .setTimeout(timeout)
+          .fill('Meetop@/123');
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='createAccountCheckbox']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"createAccountCheckbox\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='createAccountCheckbox']"),
+          targetPage.locator('::-p-aria(Yes, I have read and agree to the terms and conditions)')
+      ])
+          .setTimeout(timeout)
+          .click({
+            offset: {
+              x: 10.39996337890625,
+              y: 11.350006103515625,
+            },
+          });
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='click_filter']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"click_filter\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='click_filter']"),
+          targetPage.locator('::-p-aria(Create Account[role=\\"button\\"])')
+      ])
+          .setTimeout(timeout)
+          .click({
+            offset: {
+              x: 156.39996337890625,
+              y: 17.350006103515625,
+            },
+          });
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator('#simplify-jobs-container > div >>>> #fill-button'),
+          targetPage.locator(':scope >>> #fill-button')
+      ])
+          .setTimeout(timeout)
+          .click({
+            offset: {
+              x: 204,
+              y: 20.800003051757812,
+            },
+          });
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='bottom-navigation-next-button']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"bottom-navigation-next-button\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='bottom-navigation-next-button']"),
+          targetPage.locator('::-p-aria(Continue)'),
+          targetPage.locator('::-p-text(Continue)')
+      ])
+          .setTimeout(timeout)
+          .click({
+            offset: {
+              x: 44.4000244140625,
+              y: 28.79998779296875,
+            },
+          });
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='contactInformationPage']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"contactInformationPage\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='contactInformationPage']")
+      ])
+          .setTimeout(timeout)
+          .click({
+            offset: {
+              x: 20.399993896484375,
+              y: 203.1999969482422,
+            },
+          });
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator('#\\32 '),
+          targetPage.locator('::-p-xpath(//*[@id=\\"2\\"])'),
+          targetPage.locator(':scope >>> #\\32 '),
+          targetPage.locator('::-p-aria(No)')
+      ])
+          .setTimeout(timeout)
+          .click({
+            offset: {
+              x: 18.399993896484375,
+              y: 13.600006103515625,
+            },
+          });
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='addressSection_postalCode']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"addressSection_postalCode\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='addressSection_postalCode']"),
+          targetPage.locator('::-p-aria(Postal Code)')
+      ])
+          .setTimeout(timeout)
+          .click({
+            offset: {
+              x: 56.399993896484375,
+              y: 6.199981689453125,
+            },
+          });
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='addressSection_postalCode']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"addressSection_postalCode\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='addressSection_postalCode']"),
+          targetPage.locator('::-p-aria(Postal Code)')
+      ])
+          .setTimeout(timeout)
+          .fill('250001');
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='phone-number']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"phone-number\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='phone-number']"),
+          targetPage.locator('::-p-aria(Phone Number)'),
+          targetPage.locator('::-p-text(918077975459)')
+      ])
+          .setTimeout(timeout)
+          .click({
+            offset: {
+              x: 26.399993896484375,
+              y: 26.600006103515625,
+            },
+          });
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='phone-number']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"phone-number\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='phone-number']"),
+          targetPage.locator('::-p-aria(Phone Number)'),
+          targetPage.locator('::-p-text(918077975459)')
+      ])
+          .setTimeout(timeout)
+          .fill('8077975459');
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='bottom-navigation-next-button']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"bottom-navigation-next-button\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='bottom-navigation-next-button']"),
+          targetPage.locator('::-p-aria(Save and Continue)'),
+          targetPage.locator('::-p-text(Save and Continue)')
+      ])
+          .setTimeout(timeout)
+          .click({
+            offset: {
+              x: 24.9749755859375,
+              y: 14.79998779296875,
+            },
+          });
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='school']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"school\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='school']"),
+          targetPage.locator('::-p-aria(School or University)')
+      ])
+          .setTimeout(timeout)
+          .click({
+            offset: {
+              x: 293.3999938964844,
+              y: 27,
+            },
+          });
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='school']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"school\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='school']"),
+          targetPage.locator('::-p-aria(School or University)'),
+          targetPage.locator('::-p-text(Indian Institute)')
+      ])
+          .setTimeout(timeout)
+          .fill('IIT Dhanbad');
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='bottom-navigation-next-button']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"bottom-navigation-next-button\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='bottom-navigation-next-button']"),
+          targetPage.locator('::-p-aria(Save and Continue)'),
+          targetPage.locator('::-p-text(Save and Continue)')
+      ])
+          .setTimeout(timeout)
+          .click({
+            offset: {
+              x: 28.9749755859375,
+              y: 22.79998779296875,
+            },
+          });
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='agreementCheckbox']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"agreementCheckbox\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='agreementCheckbox']"),
+          targetPage.locator('::-p-aria(Yes, I have read and agree to the terms and conditions)')
+      ])
+          .setTimeout(timeout)
+          .click({
+            offset: {
+              x: 11.399993896484375,
+              y: 10.324981689453125,
+            },
+          });
+  }
+  {
+      const targetPage = page;
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='bottom-navigation-next-button']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"bottom-navigation-next-button\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='bottom-navigation-next-button']"),
+          targetPage.locator('::-p-aria(Save and Continue)'),
+          targetPage.locator('::-p-text(Save and Continue)')
+      ])
+          .setTimeout(timeout)
+          .click({
+            offset: {
+              x: 41.9749755859375,
+              y: 17.79998779296875,
+            },
+          });
+  }
+  {
+      const targetPage = page;
+      const promises = [];
+      const startWaitingForEvents = () => {
+          promises.push(targetPage.waitForNavigation());
+      }
+      await puppeteer.Locator.race([
+          targetPage.locator("[data-automation-id='bottom-navigation-next-button']"),
+          targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"bottom-navigation-next-button\\"])'),
+          targetPage.locator(":scope >>> [data-automation-id='bottom-navigation-next-button']"),
+          targetPage.locator('::-p-aria(Submit)'),
+          targetPage.locator('::-p-text(Submit)')
+      ])
+          .setTimeout(timeout)
+          .on('action', () => startWaitingForEvents())
+          .click({
+            offset: {
+              x: 33.4000244140625,
+              y: 25.79998779296875,
+            },
+          });
+      await Promise.all(promises);
+  }
+
+
+    
     await browser.close();
 
 })().catch(err => {

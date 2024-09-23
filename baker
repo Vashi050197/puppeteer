@@ -1,16 +1,20 @@
 const puppeteer = require('puppeteer'); // v22.0.0 or later
 
 (async () => {
-    const browser = await puppeteer.launch();
+   
+    const browser = await puppeteer.launch({ headless: false }); // Set to false to see the browser in action
     const page = await browser.newPage();
-    const timeout = 5000;
+
+    await page.goto('https://www.google.com');
+
+    const timeout = 20000;
     page.setDefaultTimeout(timeout);
 
     {
         const targetPage = page;
         await targetPage.setViewport({
-            width: 1268,
-            height: 737
+            width: 1519,
+            height: 372
         })
     }
     {
@@ -20,41 +24,36 @@ const puppeteer = require('puppeteer'); // v22.0.0 or later
             promises.push(targetPage.waitForNavigation());
         }
         startWaitingForEvents();
-        await targetPage.goto('https://dupont.wd5.myworkdayjobs.com/en-US/jobs/job/Hyderabad-Telangana/Business-Intelligence-Data-Engineer---Azure--Python--SQL-_230530W');
+        await targetPage.goto('https://nasdaq.wd1.myworkdayjobs.com/en-US/Global_External_Site/job/Bangalore-Affluence/Data-Engineer_R0014947');
         await Promise.all(promises);
     }
     {
         const targetPage = page;
-        const promises = [];
-        const startWaitingForEvents = () => {
-            promises.push(targetPage.waitForNavigation());
-        }
         await puppeteer.Locator.race([
-            targetPage.locator('nav > button'),
-            targetPage.locator('::-p-xpath(//*[@id=\\"root\\"]/div/div/div[1]/div/header/div[2]/div[3]/div/nav/button)'),
-            targetPage.locator(':scope >>> nav > button'),
-            targetPage.locator('::-p-aria([role=\\"navigation\\"]) >>>> ::-p-aria(Search for Jobs)')
+            targetPage.locator('div.css-gj3t6y button'),
+            targetPage.locator('::-p-xpath(//*[@id=\\"mainContent\\"]/div/div/div[2]/div/button)'),
+            targetPage.locator(':scope >>> div.css-gj3t6y button'),
+            targetPage.locator("::-p-aria(The page you are looking for doesn\\'t exist. Search for Jobs) >>>> ::-p-aria(Search for Jobs)")
         ])
             .setTimeout(timeout)
-            .on('action', () => startWaitingForEvents())
             .click({
               offset: {
-                x: 26.824951171875,
-                y: 7.799999237060547,
+                x: 83.8125,
+                y: 12,
               },
             });
-        await Promise.all(promises);
     }
     {
         const targetPage = page;
         await puppeteer.Locator.race([
+            // targetPage.locator('[placeholder="Search for jobs or keywords"]')
             targetPage.locator('::-p-aria(Search[role=\\"textbox\\"])')
         ])
             .setTimeout(timeout)
             .click({
               offset: {
-                x: 239.5999984741211,
-                y: 8,
+                x: 146.39999389648438,
+                y: 16.200000762939453,
               },
             });
     }
@@ -65,3 +64,4 @@ const puppeteer = require('puppeteer'); // v22.0.0 or later
     console.error(err);
     process.exit(1);
 });
+

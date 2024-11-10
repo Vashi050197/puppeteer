@@ -1,0 +1,177 @@
+{
+    "title": "Recording 9/28/2024 at 10:32:58 PM",
+    "selectorAttribute": "data-automation-id",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 882,
+            "height": 737,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "click",
+            "timeout": 20000,
+            "target": "main",
+            "selectors": [
+                "div.mt5 > div > div span",
+                "xpath///*[@id=\"ember952\"]/span",
+                "pierce/div.mt5 > div > div span",
+                [
+                    "aria/Easy Apply to Senior Software Engineer-Python at Rohini IT Consulting LLP",
+                    "aria/[role=\"generic\"]"
+                ]
+            ],
+            "offsetX": 43.625,
+            "offsetY": 2.13751220703125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#text-entity-list-form-component-formElement-urn-li-jobs-applyformcommon-easyApplyFormElement-4034164336-4729196577-phoneNumber-country"
+                ],
+                [
+                    "xpath///*[@id=\"text-entity-list-form-component-formElement-urn-li-jobs-applyformcommon-easyApplyFormElement-4034164336-4729196577-phoneNumber-country\"]"
+                ],
+                [
+                    "pierce/#text-entity-list-form-component-formElement-urn-li-jobs-applyformcommon-easyApplyFormElement-4034164336-4729196577-phoneNumber-country"
+                ],
+                [
+                    "aria/Phone country code *"
+                ]
+            ],
+            "offsetY": 17.262481689453125,
+            "offsetX": 436.4000015258789
+        },
+        {
+            "type": "change",
+            "value": "India (+91)",
+            "selectors": [
+                [
+                    "#text-entity-list-form-component-formElement-urn-li-jobs-applyformcommon-easyApplyFormElement-4034164336-4729196577-phoneNumber-country"
+                ],
+                [
+                    "xpath///*[@id=\"text-entity-list-form-component-formElement-urn-li-jobs-applyformcommon-easyApplyFormElement-4034164336-4729196577-phoneNumber-country\"]"
+                ],
+                [
+                    "pierce/#text-entity-list-form-component-formElement-urn-li-jobs-applyformcommon-easyApplyFormElement-4034164336-4729196577-phoneNumber-country"
+                ],
+                [
+                    "aria/Phone country code *"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#single-line-text-form-component-formElement-urn-li-jobs-applyformcommon-easyApplyFormElement-4034164336-4729196577-phoneNumber-nationalNumber"
+                ],
+                [
+                    "xpath///*[@id=\"single-line-text-form-component-formElement-urn-li-jobs-applyformcommon-easyApplyFormElement-4034164336-4729196577-phoneNumber-nationalNumber\"]"
+                ],
+                [
+                    "pierce/#single-line-text-form-component-formElement-urn-li-jobs-applyformcommon-easyApplyFormElement-4034164336-4729196577-phoneNumber-nationalNumber"
+                ],
+                [
+                    "aria/Mobile phone number*"
+                ]
+            ],
+            "offsetY": 13.274993896484375,
+            "offsetX": 266.4000015258789
+        },
+        {
+            "type": "change",
+            "value": "8077975459",
+            "selectors": [
+                [
+                    "#single-line-text-form-component-formElement-urn-li-jobs-applyformcommon-easyApplyFormElement-4034164336-4729196577-phoneNumber-nationalNumber"
+                ],
+                [
+                    "xpath///*[@id=\"single-line-text-form-component-formElement-urn-li-jobs-applyformcommon-easyApplyFormElement-4034164336-4729196577-phoneNumber-nationalNumber\"]"
+                ],
+                [
+                    "pierce/#single-line-text-form-component-formElement-urn-li-jobs-applyformcommon-easyApplyFormElement-4034164336-4729196577-phoneNumber-nationalNumber"
+                ],
+                [
+                    "aria/Mobile phone number*"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                "footer span",
+                "xpath///*[@id=\"ember1051\"]/span",
+                "pierce/footer span",
+                [
+                    "aria/Continue to next step",
+                    "aria/[role=\"generic\"]"
+                ]
+            ],
+            "offsetX": 16.9749755859375,
+            "offsetY": 19.5
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                "aria/Continue to next step"
+            ],
+            "offsetX": 17.5,
+            "offsetY": 19.5
+        },
+        {
+            "type": "click",
+            "timeout": 30000,
+            "target": "main",
+            "selectors": [
+                "aria/Review your application"
+            ],
+            "offsetX": 46.33746337890625,
+            "offsetY": 13.475006103515625
+        },
+        {
+            "type": "click",
+            "timeout": 5000,
+            "target": "main",
+            "selectors": [
+                "#ember1074 > span",
+                "xpath///*[@id=\"ember1074\"]/span",
+                "pierce/#ember1074 > span",
+                [
+                    "aria/Submit application",
+                    "aria/[role=\"generic\"]"
+                ],
+                "text/Submit application"
+            ],
+            "offsetX": 100.9375,
+            "offsetY": 12.70001220703125,
+            "duration": 800
+        },
+        {
+            "type": "click",
+            "timeout": 5000,
+            "target": "main",
+            "selectors": [
+                "#artdeco-modal-outlet use",
+                "xpath///*[@id=\"ember1144\"]/svg/use",
+                "pierce/#artdeco-modal-outlet use",
+                [
+                    "aria/Dismiss",
+                    "aria/[role=\"graphics-object\"]"
+                ]
+            ],
+            "offsetX": 7.39996337890625,
+            "offsetY": 9
+        }
+    ]
+}

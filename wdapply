@@ -1,0 +1,494 @@
+{
+    "title": "dxctech7",
+    "timeout": 30000,
+    "selectorAttribute": "data-automation-id",
+    "steps": [
+        {
+            "type": "emulateNetworkConditions",
+            "download": 1012500,
+            "upload": 168750,
+            "latency": 165
+        },
+        {
+            "type": "setViewport",
+            "width": 1519,
+            "height": 515,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "click",
+            "timeout": 10000,
+            "target": "main",
+            "selectors": [
+                "[data-automation-id='createAccountLink']",
+                "xpath///*[@data-automation-id=\"createAccountLink\"]",
+                "pierce/[data-automation-id='createAccountLink']",
+                "aria/Create Account",
+                "text/Create Account"
+            ],
+            "offsetX": 39.83746337890625,
+            "offsetY": 9.199981689453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "[data-automation-id='email']"
+                ],
+                [
+                    "xpath///*[@data-automation-id=\"email\"]"
+                ],
+                [
+                    "pierce/[data-automation-id='email']"
+                ],
+                [
+                    "aria/Email Address"
+                ]
+            ],
+            "offsetX": 142.39996337890625,
+            "offsetY": 23.199981689453125
+        },
+        {
+            "type": "change",
+            "target": "main",
+            "selectors": [
+                [
+                    "[data-automation-id='email']"
+                ],
+                [
+                    "xpath///*[@data-automation-id=\"email\"]"
+                ],
+                [
+                    "pierce/[data-automation-id='email']"
+                ],
+                [
+                    "aria/Email Address"
+                ]
+            ],
+            "value": "vashimalik123@"
+        },
+        {
+            "type": "keyUp",
+            "target": "main",
+            "key": "2"
+        },
+        {
+            "type": "change",
+            "target": "main",
+            "selectors": [
+                [
+                    "[data-automation-id='email']"
+                ],
+                [
+                    "xpath///*[@data-automation-id=\"email\"]"
+                ],
+                [
+                    "pierce/[data-automation-id='email']"
+                ],
+                [
+                    "aria/Email Address"
+                ]
+            ],
+            "value": "vashimalik123@gmail.com"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "[data-automation-id='password']"
+                ],
+                [
+                    "xpath///*[@data-automation-id=\"password\"]"
+                ],
+                [
+                    "pierce/[data-automation-id='password']"
+                ],
+                [
+                    "aria/Password"
+                ]
+            ],
+            "offsetX": 108.39996337890625,
+            "offsetY": 25.599990844726562
+        },
+        {
+            "type": "change",
+            "target": "main",
+            "selectors": [
+                "[data-automation-id='password']",
+                "xpath///*[@data-automation-id=\"password\"]",
+                "pierce/[data-automation-id='password']",
+                "aria/Password"
+            ],
+            "value": "Meetop@/123"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "[data-automation-id='verifyPassword']"
+                ],
+                [
+                    "xpath///*[@data-automation-id=\"verifyPassword\"]"
+                ],
+                [
+                    "pierce/[data-automation-id='verifyPassword']"
+                ],
+                [
+                    "aria/Verify New Password"
+                ]
+            ],
+            "offsetX": 69.39996337890625,
+            "offsetY": 21.600006103515625
+        },
+        {
+            "type": "change",
+            "target": "main",
+            "selectors": [
+                "[data-automation-id='verifyPassword']",
+                "xpath///*[@data-automation-id=\"verifyPassword\"]",
+                "pierce/[data-automation-id='verifyPassword']",
+                "aria/Verify New Password"
+            ],
+            "value": "Meetop@/123"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "[data-automation-id='click_filter']"
+                ],
+                [
+                    "xpath///*[@data-automation-id=\"click_filter\"]"
+                ],
+                [
+                    "pierce/[data-automation-id='click_filter']"
+                ],
+                [
+                    "aria/Create Account[role=\"button\"]"
+                ]
+            ],
+            "offsetX": 156.39996337890625,
+            "offsetY": 17.350006103515625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#simplify-jobs-container > div",
+                    "#fill-button"
+                ],
+                [
+                    "pierce/#fill-button"
+                ]
+            ],
+            "offsetX": 204,
+            "offsetY": 20.800003051757812
+        },
+        {
+            "type": "click",
+            "timeout": 10000,
+            "target": "main",
+            "selectors": [
+                "[data-automation-id='bottom-navigation-next-button']",
+                "xpath///*[@data-automation-id=\"bottom-navigation-next-button\"]",
+                "pierce/[data-automation-id='bottom-navigation-next-button']",
+                "aria/Continue",
+                "text/Continue"
+            ],
+            "offsetX": 44.4000244140625,
+            "offsetY": 28.79998779296875
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#simplify-jobs-container > div",
+                    "#fill-button"
+                ],
+                "pierce/#fill-button"
+            ],
+            "offsetX": 204,
+            "offsetY": 20
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "[data-automation-id='contactInformationPage']"
+                ],
+                [
+                    "xpath///*[@data-automation-id=\"contactInformationPage\"]"
+                ],
+                [
+                    "pierce/[data-automation-id='contactInformationPage']"
+                ]
+            ],
+            "offsetX": 20.399993896484375,
+            "offsetY": 203.1999969482422
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#\\32 "
+                ],
+                [
+                    "xpath///*[@id=\"2\"]"
+                ],
+                [
+                    "pierce/#\\32 "
+                ],
+                [
+                    "aria/No"
+                ]
+            ],
+            "offsetX": 18.399993896484375,
+            "offsetY": 13.600006103515625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "[data-automation-id='addressSection_postalCode']"
+                ],
+                [
+                    "xpath///*[@data-automation-id=\"addressSection_postalCode\"]"
+                ],
+                [
+                    "pierce/[data-automation-id='addressSection_postalCode']"
+                ],
+                [
+                    "aria/Postal Code"
+                ]
+            ],
+            "offsetX": 56.399993896484375,
+            "offsetY": 6.199981689453125
+        },
+        {
+            "type": "keyDown",
+            "target": "main",
+            "key": "ArrowDown"
+        },
+        {
+            "type": "keyUp",
+            "target": "main",
+            "key": "ArrowDown"
+        },
+        {
+            "type": "keyDown",
+            "target": "main",
+            "key": "Clear"
+        },
+        {
+            "type": "keyUp",
+            "target": "main",
+            "key": "Clear"
+        },
+        {
+            "type": "change",
+            "target": "main",
+            "selectors": [
+                [
+                    "[data-automation-id='addressSection_postalCode']"
+                ],
+                [
+                    "xpath///*[@data-automation-id=\"addressSection_postalCode\"]"
+                ],
+                [
+                    "pierce/[data-automation-id='addressSection_postalCode']"
+                ],
+                [
+                    "aria/Postal Code"
+                ]
+            ],
+            "value": "250001"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "[data-automation-id='phone-number']"
+                ],
+                [
+                    "xpath///*[@data-automation-id=\"phone-number\"]"
+                ],
+                [
+                    "pierce/[data-automation-id='phone-number']"
+                ],
+                [
+                    "aria/Phone Number"
+                ],
+                [
+                    "text/918077975459"
+                ]
+            ],
+            "offsetX": 26.399993896484375,
+            "offsetY": 26.600006103515625
+        },
+        {
+            "type": "change",
+            "target": "main",
+            "selectors": [
+                [
+                    "[data-automation-id='phone-number']"
+                ],
+                [
+                    "xpath///*[@data-automation-id=\"phone-number\"]"
+                ],
+                [
+                    "pierce/[data-automation-id='phone-number']"
+                ],
+                [
+                    "aria/Phone Number"
+                ],
+                [
+                    "text/918077975459"
+                ]
+            ],
+            "value": "8077975459"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "[data-automation-id='bottom-navigation-next-button']"
+                ],
+                [
+                    "xpath///*[@data-automation-id=\"bottom-navigation-next-button\"]"
+                ],
+                [
+                    "pierce/[data-automation-id='bottom-navigation-next-button']"
+                ],
+                [
+                    "aria/Save and Continue"
+                ],
+                [
+                    "text/Save and Continue"
+                ]
+            ],
+            "offsetX": 24.9749755859375,
+            "offsetY": 14.79998779296875
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#simplify-jobs-container > div",
+                    "#fill-button"
+                ],
+                "pierce/#fill-button"
+            ],
+            "offsetX": 284,
+            "offsetY": 20
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "[data-automation-id='bottom-navigation-next-button']"
+                ],
+                [
+                    "xpath///*[@data-automation-id=\"bottom-navigation-next-button\"]"
+                ],
+                [
+                    "pierce/[data-automation-id='bottom-navigation-next-button']"
+                ],
+                [
+                    "aria/Save and Continue"
+                ],
+                [
+                    "text/Save and Continue"
+                ]
+            ],
+            "offsetX": 28.9749755859375,
+            "offsetY": 22.79998779296875
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "[data-automation-id='agreementCheckbox']"
+                ],
+                [
+                    "xpath///*[@data-automation-id=\"agreementCheckbox\"]"
+                ],
+                [
+                    "pierce/[data-automation-id='agreementCheckbox']"
+                ],
+                [
+                    "aria/Yes, I have read and agree to the terms and conditions"
+                ]
+            ],
+            "offsetX": 11.399993896484375,
+            "offsetY": 10.324981689453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "[data-automation-id='bottom-navigation-next-button']"
+                ],
+                [
+                    "xpath///*[@data-automation-id=\"bottom-navigation-next-button\"]"
+                ],
+                [
+                    "pierce/[data-automation-id='bottom-navigation-next-button']"
+                ],
+                [
+                    "aria/Save and Continue"
+                ],
+                [
+                    "text/Save and Continue"
+                ]
+            ],
+            "offsetX": 41.9749755859375,
+            "offsetY": 17.79998779296875
+        },
+        {
+            "type": "click",
+            "assertedEvents": [
+                {
+                    "type": "navigation"
+                }
+            ],
+            "target": "main",
+            "selectors": [
+                [
+                    "[data-automation-id='bottom-navigation-next-button']"
+                ],
+                [
+                    "xpath///*[@data-automation-id=\"bottom-navigation-next-button\"]"
+                ],
+                [
+                    "pierce/[data-automation-id='bottom-navigation-next-button']"
+                ],
+                [
+                    "aria/Submit"
+                ],
+                [
+                    "text/Submit"
+                ]
+            ],
+            "offsetX": 33.4000244140625,
+            "offsetY": 25.79998779296875
+        }
+    ]
+}

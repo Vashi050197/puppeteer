@@ -1,0 +1,65 @@
+{
+    "title": "lever",
+    "selectorAttribute": "data-automation-id",
+    "timeout": 30000,
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 834,
+            "height": 737,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "div.accent-section a"
+                ],
+                [
+                    "xpath//html/body/div[2]/div/div[1]/div/div[2]/a"
+                ],
+                [
+                    "pierce/div.accent-section a"
+                ]
+            ],
+            "offsetY": 13,
+            "offsetX": 67.125,
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "https://jobs.lever.co/proof/dcd4b18b-619e-4671-a76c-00684f0cab2f/apply",
+                    "title": ""
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#simplify-jobs-container > div:nth-of-type(3)",
+                    "#fill-button"
+                ],
+                "pierce/#fill-button"
+            ],
+            "offsetX": 216.79998779296875,
+            "offsetY": 6.8000030517578125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                "[data-qa='btn-submit']",
+                "xpath///*[@data-qa=\"btn-submit\"]",
+                "pierce/[data-qa='btn-submit']",
+                "text/Submit application"
+            ],
+            "offsetX": 25.17498779296875,
+            "offsetY": 22.25
+        }
+    ]
+}

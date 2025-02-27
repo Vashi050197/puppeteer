@@ -10,7 +10,25 @@ const readline = require('readline');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const genAI = new GoogleGenerativeAI("AIzaSyDEl4vJaneM22pSs67ygDmi9nUTZ87I0xY");
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+
+const schema = {
+    description: "Char",
+    type: "string",
+    minLength: 1,
+    maxLength: 1,
+  };
+  
+  
+  const model = genAI.getGenerativeModel({
+    model: "gemini-2.0-flash",
+    generationConfig: {
+      responseMimeType: "application/json",
+      responseSchema: schema,
+    },
+    systemInstruction: "Give the output in 1 word(in Integer format) only, if no answer is found in Json than output 99 and RESPONSE ASAP sometime answer is not in Json So simply output 9. some of the question has NOTICE PERIOD or NP and 'how soon you can join' these all have same meaning. similarly for current salary,  current CTC or CCTC are same. CCTC is just short form of current CTC. Same for Expected CTC and ECTC. ECTC and CCTC are obviously different. Related question which has same meaning/context may be find in the Json than answer that but if you are not sure than output 99"
+                            
+  });
+
 const puppeteer = require('puppeteer');
 // Function to ask for user input
 // function askQuestion(query) {
@@ -717,7 +735,7 @@ debugger;
                     },
                   });
               console.log('7 finished');    
-          }
+            }
 
         //   {
         //       const targetPage = page;
@@ -850,9 +868,31 @@ debugger;
         
         
         if (!indexValues[key]) {
-            const answer =  await getUserInput(targetPage,key);
-            indexValues[key] = answer;
-            fs.writeFileSync(filePath, JSON.stringify(indexValues, null, 2));
+            
+            // Capture screenshot directly as a Buffer and convert to base64
+            const screenshotBuffer = await page.screenshot(); // returns a Buffer by default
+            const screenshotBase64 = screenshotBuffer.toString("base64");
+
+            // Construct the image part object using the buffer data
+            const imagePart = {
+            inlineData: {
+                data: screenshotBase64,
+                mimeType: "image/jpeg"
+            }
+            };
+
+            const prompt = `Answer the question, "${key}". question is  given in images. Use ${JSON.stringify(indexValues)} for reference to answer.`;
+
+            // Call the generative model (e.g., Gemini)
+            const result = await model.generateContent([prompt, imagePart]);
+            console.log(result);
+            if (result.text === "99") {
+                const answer =  await getUserInput(targetPage,key);    
+                indexValues[key] = answer;
+                
+            }
+            indexValues[key] = result.text;
+            fs.writeFileSync(filePath, JSON.stringify(indexValues, null, 2));    
         }
         return indexValues[key];
         }
@@ -889,12 +929,12 @@ debugger;
                 const key = field.label;
                 debugger;
                 // Skip fields that already have a value
-                if (field.value !== null && field.value.trim() !== "") {
+                if (field.value !== null && field.value !== undefined && field.value.trim() !== "" && !(field.value.toLowerCase().includes('select'))) {
                     continue;
                 }
         
                 // Fetch the value dynamically
-                const value = await getIndexValue(key);
+               
                 
                 // Build an array of locators in order of priority
                 const locators = [];
@@ -912,7 +952,15 @@ debugger;
                     console.error(`No selector available for field "${key}"`);
                     continue;
                 }
-        
+                await  puppeteer.Locator.race(locators).setTimeout(timeout).click();
+                
+                const value = await getIndexValue(key);
+                
+                if (field.value.toLowerCase().includes('select')) {
+
+                    await puppeteer.Locator.race(locators).setTimeout(timeout).select(value);
+                }
+
                 try {
                     // Use locator.race() to select the first available locator
                     
@@ -972,8 +1020,7 @@ debugger;
                 }
             }
         
-        const userConfirmed3 =  
-        await getUserInput(targetPage,'final check 1 confirm ');
+        const userConfirmed3 =  await getUserInput(targetPage,'final check 1 confirm ');
         if (reqFields.length!==0 ){
         {   
             const timeout23=20000;
@@ -1019,7 +1066,8 @@ debugger;
                           console.log('13434 finished');      
             }
             
-            const userConfirmed2 = await getUserInput(targetPage,'volu page');
+            const userConfirmed2 = 
+            await getUserInput(targetPage,'volu page');
             if (userConfirmed2 === 'a') {
                     break;
                 }
@@ -1028,7 +1076,7 @@ debugger;
 
                 {
                     const targetPage = page;
-                    const timeou=20000;
+                    const timeou=45000;
                     await puppeteer.Locator.race([
                         targetPage.locator("[data-automation-id='bottom-navigation-next-button']"),
                         targetPage.locator('::-p-xpath(//*[@data-automation-id=\\"bottom-navigation-next-button\\"])'),
@@ -1076,7 +1124,7 @@ debugger;
                         debugger;
                         // Skip finaelds that already have a value
                         
-                        if (field.value !== null && field.value.trim() !== "" && (field.value.toLowerCase().includes('select')) ) {
+                        if (field.value !== null && field.value !== undefined && field.value.trim() !== "" && !(field.value.toLowerCase().includes('select'))){
                             continue;
                         }
                         // Fetch the value dynamically
@@ -1098,6 +1146,8 @@ debugger;
                             console.error(`No selector available for field "${key}"`);
                             continue;
                         }
+
+                        await puppeteer.Locator.race(locators).setTimeout(timeout).click();
 
                         if (field.value.toLowerCase().includes('select')) {
 
@@ -1196,7 +1246,7 @@ debugger;
         }
         
         
-        const att=2;
+        var att=2;
         while(att!==0) {
 
 

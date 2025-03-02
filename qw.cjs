@@ -20,12 +20,12 @@ const schema = {
   
   
   const model = genAI.getGenerativeModel({
-    model: "gemini-2.0-flash",
+    model: "gemini-1.5-flash",
     generationConfig: {
       responseMimeType: "application/json",
       responseSchema: schema,
     },
-    systemInstruction: "Give the output in 1 word(in Integer format) only, if no answer is found in Json than output 99 and RESPONSE ASAP sometime answer is not in Json So simply output 9. some of the question has NOTICE PERIOD or NP and 'how soon you can join' these all have same meaning. similarly for current salary,  current CTC or CCTC are same. CCTC is just short form of current CTC. Same for Expected CTC and ECTC. ECTC and CCTC are obviously different. Related question which has same meaning/context may be find in the Json than answer that but if you are not sure than output 99"
+    systemInstruction: "Give the output in 1 word(in Integer format) only, if no answer is found in Json than output 99 and RESPONSE ASAP sometime answer is not in Json So simply output 99. some of the question has same meaning like NOTICE PERIOD or NP and 'how soon you can join' these all have same meaning. similarly for current salary,  current CTC or CCTC are same. CCTC is just short form of current CTC. Same for Expected CTC and ECTC. ECTC and CCTC are obviously different. Related question which has same meaning/context may be find in the Json than answer that but if you are not sure than output 99"
                             
   });
 
@@ -208,6 +208,44 @@ debugger;
             });
         }, mess); // Pass 'mess' explicitly as an argument
     }
+
+    async function getIndexValue(page,key) {
+        
+        
+        if (!indexValues[key]) {
+            
+            // Capture screenshot directly as a Buffer and convert to base64
+            const screen = await page.screenshot({ path: 's.jpg',type: "jpeg", fullPage: false, omitBackground: true });
+            
+              
+
+            // Construct the image part object using the buffer data
+            const imagePart = {
+            inlineData: {
+                data: Buffer.from(fs.readFileSync('s.jpg')).toString("base64"),
+                mimeType: "image/jpeg"
+            }
+            };
+
+            const prompt = `Answer the question, "${key}". question and options is given in the image. If the job application question is too generic and irrelevant to specific candidature than answer the question apporpirately yourself from the options given in the image. Use ${JSON.stringify(indexValues)} for reference to answer.`;
+
+            // Call the generative model (e.g., Gemini)
+            const result = await model.generateContent([prompt, imagePart]);
+
+           
+            const an= result.response.text();
+            const ad=JSON.parse(an);
+            const bn=ad.trim();
+            if (bn === "99") {
+                const answer =  await getUserInput(targetPage,key);    
+                indexValues[key] = answer;
+                
+            }
+            indexValues[key] = bn;
+            fs.writeFileSync(filePath, JSON.stringify(indexValues, null, 2));    
+        }
+        return indexValues[key];
+        }
     
     // Call function in Puppeteer
     const locators = [
@@ -215,7 +253,7 @@ debugger;
         targetPage.locator(':scope >>> #fill-button')
     ];
 
-
+    
     {
         const targetPage = page;
         debugger;
@@ -859,45 +897,6 @@ debugger;
                 console.log('5 asjkdjkafinished');
         }
 
-        // Helper functions (assumes Node.js environment)
-
-
-
-
-        async function getIndexValue(key) {
-        
-        
-        if (!indexValues[key]) {
-            
-            // Capture screenshot directly as a Buffer and convert to base64
-            const screenshotBuffer = await page.screenshot(); // returns a Buffer by default
-            const screenshotBase64 = screenshotBuffer.toString("base64");
-
-            // Construct the image part object using the buffer data
-            const imagePart = {
-            inlineData: {
-                data: screenshotBase64,
-                mimeType: "image/jpeg"
-            }
-            };
-
-            const prompt = `Answer the question, "${key}". question is  given in images. Use ${JSON.stringify(indexValues)} for reference to answer.`;
-
-            // Call the generative model (e.g., Gemini)
-            const result = await model.generateContent([prompt, imagePart]);
-            console.log(result);
-            if (result.text === "99") {
-                const answer =  await getUserInput(targetPage,key);    
-                indexValues[key] = answer;
-                
-            }
-            indexValues[key] = result.text;
-            fs.writeFileSync(filePath, JSON.stringify(indexValues, null, 2));    
-        }
-        return indexValues[key];
-        }
-        
-       
         
            
         const reqFields = await targetPage.evaluate(() => {
@@ -954,7 +953,7 @@ debugger;
                 }
                 await  puppeteer.Locator.race(locators).setTimeout(timeout).click();
                 
-                const value = await getIndexValue(key);
+                const value = await getIndexValue(targetPage,key);
                 
                 if (field.value.toLowerCase().includes('select')) {
 
@@ -1063,6 +1062,7 @@ debugger;
                               y: 20.800003051757812,
                             },
                           });
+                          
                           console.log('13434 finished');      
             }
             
@@ -1128,7 +1128,7 @@ debugger;
                             continue;
                         }
                         // Fetch the value dynamically
-                        const value = await getIndexValue(key);
+                        
                         
                         // Build an array of locators in order of priority
                         const locators = [];
@@ -1148,6 +1148,8 @@ debugger;
                         }
 
                         await puppeteer.Locator.race(locators).setTimeout(timeout).click();
+
+                        const value = await getIndexValue(targetPage,key);
 
                         if (field.value.toLowerCase().includes('select')) {
 
